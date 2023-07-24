@@ -1,0 +1,54 @@
+::ng-deep * {
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+header .left-links {
+  display: flex;
+}
+header .left-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+header .left-links a:hover {
+  text-decoration: underline;
+}
+header .right-links {
+  display: flex;
+}
+header .right-links a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+header .right-links a:hover {
+  text-decoration: underline;
+}
+header .title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Responsive styles for smaller devices */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  header .left-links,
+  header .right-links {
+    flex-direction: row;
+    margin-top: 10px;
+  }
+  header .left-links a,
+  header .right-links a {
+    padding: 5px;
+  }
+}
