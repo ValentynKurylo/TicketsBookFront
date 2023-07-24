@@ -1,0 +1,14 @@
+<div class="container">
+  <h2 class="title">Upcoming Events</h2>
+  <div class="event-list">
+    <div *ngFor="let event of events" class="event-item">
+      <h3 class="name">{{ event.name }}</h3>
+      <p class="date-time">{{ event.date }} - {{ event.time }}</p>
+      <p class="place">{{ event.place }}</p>
+      <a class="details-link" routerLink="events/{{event.id}}">More Details</a>
+    </div>
+  </div>
+  <div *ngIf="!events || events.length === 0" class="no-events">
+    <p>No upcoming events.</p>
+  </div>
+</div>

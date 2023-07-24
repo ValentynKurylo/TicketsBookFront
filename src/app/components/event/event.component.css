@@ -1,0 +1,62 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.event-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.event-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  width: 300px;
+  max-width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.event-item:hover {
+  transform: scale(1.05);
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.date-time {
+  font-size: 16px;
+  margin: 0;
+}
+
+.place {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.details-link {
+  display: block;
+  text-decoration: none;
+  color: blue;
+}
+
+.no-events {
+  text-align: center;
+  margin-top: 20px;
+}

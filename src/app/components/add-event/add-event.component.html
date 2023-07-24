@@ -1,0 +1,22 @@
+<div class="registration-form">
+  <h2>Add new Event</h2>
+  <form [formGroup]="addEventForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" />
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="datetime-local" id="date" formControlName="date" />
+    </div>
+    <div class="form-group">
+      <label for="place">Place</label>
+      <input type="text" id="place" formControlName="place" />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" id="description" formControlName="description" />
+    </div>
+    <button type="submit" [disabled]="!addEventForm.valid">add</button>
+  </form>
+</div>

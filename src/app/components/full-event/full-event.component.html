@@ -1,0 +1,64 @@
+<div class="event-details">
+  <h2 class="event-name">{{ fullEvent?.name }}</h2>
+  <p class="event-date-time">{{ fullEvent?.date }} - {{ fullEvent?.time }}</p>
+  <p class="event-place">{{ fullEvent?.place }}</p>
+  <p class="event-description">{{ fullEvent?.description }}</p>
+  <button class="show-free-seats-button" (click)="toggleFreeSeats()">
+    {{ showFreeSeats ? 'Hide Free Seats' : 'Show Free Seats' }}
+  </button>
+  <button class="show-free-seats-button" *ngIf="isAdmin == 'admin'">
+    <a href="/addSection/{{fullEvent?.id}}">Add Section</a>
+  </button>
+  <button class="show-free-seats-button" (click)="deleteEvent(fullEvent?.id)" *ngIf="isAdmin == 'admin'">
+    Delete Event
+  </button>
+  <div class="free-seats" *ngIf="showFreeSeats && showFreeSeats">
+    <h3>Sections:</h3>
+    <div class="sections-row">
+      <button
+        class="section-button"
+        *ngFor="let section of sections"
+        (click)="handleSectionClick(section.id, section.price, section.name)"
+        [ngClass]="{ 'active-section': section.id === activeSection }">
+        {{ section.name }} - Price: {{ section.price | currency}}
+      </button>
+    </div>
+  </div>
+  <div class="free-seats" *ngIf="showRows && showRows">
+    <h3>Rows:</h3>
+    <div class="sections-row">
+      <button
+        class="section-button"
+        *ngFor="let row of rows, let i = index"
+        (click)="handleRowClick(row.id, i)"
+        [ngClass]="{ 'active-row': row.id === activeRow }">
+        {{ row.name }}
+      </button>
+    </div>
+  </div>
+  <div class="free-seats" *ngIf="showSeat && showSeat">
+    <h3>Seats(To book to click on green seat):</h3>
+    <div class="sections-row">
+      <button
+        class="section-button"
+        *ngFor="let seat of seats, let i = index"
+        (click)="bookSeat(seat.id, seat.isActive, i)"
+        [ngClass]="{ 'seat-free': seat.isActive}">
+        {{ seat.name }}
+      </button>
+    </div>
+    <div class="free-seats" *ngIf="booking && booking">
+      <h3>Booking:</h3>
+      <p>Section: {{activeNameSection}}</p>
+      <p>Row: {{rowIndex + 1}}</p>
+      <p>Seat: {{seatIndex + 1}}</p>
+      <p>Price: {{activePrice | currency}}</p>
+      <div class="sections-row">
+        <button
+          class="section-button"
+          (click)="bookSeatDB()">
+          book
+        </button>
+      </div>
+  </div>
+</div>

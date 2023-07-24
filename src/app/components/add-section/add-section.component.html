@@ -1,0 +1,22 @@
+<div class="registration-form">
+  <h2>Add new Section</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" />
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" id="price" formControlName="price" />
+    </div>
+    <div class="form-group">
+      <label for="rows">Number of Rows</label>
+      <input type="number" id="rows" formControlName="rows" />
+    </div>
+    <div class="form-group">
+      <label for="seats">Number of Seats</label>
+      <input type="number" id="seats" formControlName="seats" />
+    </div>
+    <button type="submit" [disabled]="!addForm.valid">add</button>
+  </form>
+</div>
